@@ -1,0 +1,3 @@
+weapons/engine_muzzle_smoke.txt
+//particles/weapons/engine_concrete_spark.txt
+//particles/weapons/metal_sparks.txt

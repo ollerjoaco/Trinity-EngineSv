@@ -1,0 +1,33 @@
+//Particulas de humo al disparar madera
+
+life 1.1
+lifevar 0.5
+
+fadedelay 0.5
+
+minvel 3
+maxvel 9
+
+maxofs 2
+
+texture particle_wood
+rendermode 2
+
+scale 3
+scalevar 3
+scaledampdelay 0.01
+scaledampfactor -8
+
+collision 0
+rotationvel 80
+rotationdamp 0.02
+
+impactdamp 0.2
+
+gravity 0.001
+
+mainalpha 0.45
+
+startparticles 6
+
+lightmaps 1

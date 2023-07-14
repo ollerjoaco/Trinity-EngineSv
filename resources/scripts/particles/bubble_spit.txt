@@ -1,0 +1,36 @@
+systemshape 0
+
+minvel 30
+maxvel 30
+
+maxofs 15
+
+fadein 0
+
+minalpha 200
+
+
+//velocity
+veldamp 0.01
+veldampdelay 0
+
+life 1.55
+
+scale 0.2
+scalevar 0.4
+scaledampdelay 0
+scaledampfactor -1.5
+
+maxparticles -1
+
+intensity 0.5
+maxparticlevar 12
+
+lightmaps 1
+
+
+//Texture
+texture bubble
+rendermode 0
+
+display 1

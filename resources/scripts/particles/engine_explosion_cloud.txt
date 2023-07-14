@@ -1,0 +1,31 @@
+//Particulas exparcidas de explosion grenades
+
+life 0.5
+lifevar 0.5
+
+fadedelay 0.5
+
+minvel 3
+maxvel 5
+
+maxofs 2
+
+texture particle_grey
+rendermode 2
+
+scale 2
+scalevar 3
+scaledampdelay 0
+scaledampfactor -8
+
+collision 0
+rotationvel 80
+rotationdamp 0.02
+
+impactdamp 0.2
+
+gravity 0.001
+
+startparticles 1
+
+lightmaps 1

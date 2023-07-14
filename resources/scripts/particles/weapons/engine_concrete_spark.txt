@@ -1,0 +1,29 @@
+life 0.1
+//lifevar 4
+overbright 1
+//fadedelay 0.5
+
+minvel 3
+maxvel 10
+
+maxofs 2
+
+texture spark_static_a
+rendermode 1
+
+scale -5
+scalevar 10
+//scaledampdelay 0
+scaledampfactor -80
+
+collision 0
+rotationvel 80
+rotationdamp 0.02
+
+impactdamp 0
+
+gravity 0
+
+startparticles 1
+
+lightmaps 1

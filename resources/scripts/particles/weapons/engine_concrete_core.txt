@@ -1,0 +1,31 @@
+life 0.2
+//lifevar 0.1
+
+systemshape 1
+systemsize 1
+//randomdir 1
+
+fadedelay 0.15
+
+minvel 10
+maxvel 15
+
+texture debris_concrete001a
+rendermode 3
+
+scale 1
+scalevar 0.5
+scaledampfactor -52
+
+//rotationvel 90
+//rotationvar 30
+
+pcolr 255
+pcolg 255
+pcolb 255
+
+gravity -0.02
+
+startparticles 2
+
+lightmaps 1

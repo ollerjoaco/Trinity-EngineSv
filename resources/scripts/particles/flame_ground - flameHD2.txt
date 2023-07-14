@@ -1,0 +1,40 @@
+life 3
+lifevar 2
+softparticles 1
+fadein 1
+systemshape 1
+systemsize 1
+//randomdir 1
+//overbright 1
+
+fadedelay 0.3
+
+//minvel 10
+//maxvel 15
+
+rendermode 0
+
+numframes 32
+framesizex 128
+framesizey 128
+framerate 40
+
+texture flameHD2
+display 1
+
+scale 25
+scalevar 25
+scaledampfactor 10
+scaledampdelay 1
+
+//rotationvel 90
+//rotationvar 30
+
+lightmaps 0
+pcolr 100
+pcolg 100
+pcolb 100
+
+//gravity -0.005
+
+startparticles 2

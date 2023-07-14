@@ -1,0 +1,6 @@
+fogend 0
+fogstart 0
+fresnel 1
+colr 64
+colg 80
+colb 90

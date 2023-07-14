@@ -1,0 +1,14 @@
+Trinity - Test Map 0.1
+by Captain B.O - 2010
+
+I've whipped up a test map for Trinity, showing some of its features. It really only scratches 
+the surface of what can be done, but it might give people new to it a more visual idea on what it's all about. 
+
+The maping is pretty rough because I only made it quicky as a proof-of-concept, so to speak.
+Most of the textures in this map are using the external texture replacement feature. 
+They can be found in /gfx/textures/world.
+
+The crates are meant to bob up and down in the water. I'm certain I've seen it done before but I couldn't get it to work. 
+Anyone know what was wrong with it?
+The hgrunt is there to showcase the model decals. It's not a perfect setup, depending on where the grunt shoots and how the NPCs fall it may obscure the decals. 
+It might take a few reloads of the map to get it to show them properly. When the grunt's taken all the "enemies" out, hit the button to get rid of him.

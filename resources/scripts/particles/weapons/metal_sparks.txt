@@ -1,0 +1,28 @@
+randomdir 1
+
+life 0.7
+lifevar 0.2
+
+fadedelay 0.3
+
+minvel 3
+maxvel 5
+
+maxofs 200
+
+texture yellowflare
+rendermode 1
+
+scale 0.2
+scalevar 0.2
+
+//collision 2
+//rotationvel 80
+
+//impactdamp 0.2
+
+gravity 0.5
+
+startparticles 2
+
+lightmaps 1

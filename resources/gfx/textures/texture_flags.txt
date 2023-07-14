@@ -1,0 +1,12 @@
+world c1a0_labflre alternate
+world -3lab1_w4gad alternate
+world glassblue2 alternate
+world pls_wht_small01 alternate
+world fifties_wall14t alternate
+world fifties_wall14y alternate
+world fifties_flr04 alternate
+world crate08 alternate
+world crate08b alternate
+world tnnl_flr4 alternate
+world tnnl_w12d4 alternate
+world duct_flr01 alternate
