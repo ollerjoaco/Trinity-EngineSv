@@ -17,6 +17,5 @@
 **/msvc/.vs
 **/msvc/ipch
 
-regamedll/version/appversion.h
 regamedll/msvc/PublishPath*.txt
 publish
