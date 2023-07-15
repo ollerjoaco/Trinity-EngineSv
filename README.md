@@ -10,7 +10,9 @@ Server-Side part of the mod it´s done with a modifidied [reGame](https://github
 
 ## Installation
 
-1. Download the binaries from [GitHub Release](https://github.com/ollerjoaco/MH_TrinityRender/releases), then unzip it.
+1. Install [Metahook](https://github.com/Nagist/metahook) or if using Steam [MetaHookSv](https://github.com/hzqst/MetaHookSv)
+
+1. Download the binaries from [GitHub Release](https://github.com/ollerjoaco/Trinity-EngineSv/releases), then unzip it.
 
 2. Copy and paste the content from the 'resources' folder into your game mod folder (cstrike).
 
@@ -77,5 +79,4 @@ Server-Side part of the mod it´s done with a modifidied [reGame](https://github
 
 RegameDLL does not allows [amxmodx](https://github.com/alliedmodders/amxmodx) versions older than 1.8.3, if you plan to use it please consider upgrading your version, preferibly to the latest one.
 
-I highly recommend you to use the maintained version of the old metahook engine, [MetahookSv](https://github.com/hzqst/MetaHookSv). This is compatible with the Steam version of the game and will work fine with Trinity.
-Notice that MetahookSV has problems running on engine build versions older than 8684. So if you are non-Steam check your version of the engine by typing 'version' in your console.
+Please report any bug you encounter :)
