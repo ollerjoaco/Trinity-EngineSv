@@ -1,0 +1,2 @@
+#define DECAL_SCORCH1		47
+#define DECAL_SCORCH2		48

@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source\trinity">
+      <UniqueIdentifier>{aff5ba70-f685-40d2-94b6-2a56f19818bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header\trinity">
+      <UniqueIdentifier>{3ebf650f-82e5-4f6c-b7dc-7b68494fabc5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="exportfuncs.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="plugins.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="bsprenderer.cpp">
+      <Filter>Source\trinity</Filter>
+    </ClCompile>
+    <ClCompile Include="frustum.cpp">
+      <Filter>Source\trinity</Filter>
+    </ClCompile>
+    <ClCompile Include="mirrormanager.cpp">
+      <Filter>Source\trinity</Filter>
+    </ClCompile>
+    <ClCompile Include="particle_engine.cpp">
+      <Filter>Source\trinity</Filter>
+    </ClCompile>
+    <ClCompile Include="propmanager.cpp">
+      <Filter>Source\trinity</Filter>
+    </ClCompile>
+    <ClCompile Include="rendererdefs.cpp">
+      <Filter>Source\trinity</Filter>
+    </ClCompile>
+    <ClCompile Include="StudioModelRenderer.cpp">
+      <Filter>Source\trinity</Filter>
+    </ClCompile>
+    <ClCompile Include="textureloader.cpp">
+      <Filter>Source\trinity</Filter>
+    </ClCompile>
+    <ClCompile Include="watershader.cpp">
+      <Filter>Source\trinity</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStudioModelRenderer.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="studio_util.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="parsemsg.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="util.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="hud.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="view.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="player.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="r.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="events.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="message.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="interface.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="svc_hook.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="svc_message.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="engfuncs.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="exportfuncs.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\HLSDK\common\interface.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="hud.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="bsprenderer.h">
+      <Filter>Header\trinity</Filter>
+    </ClInclude>
+    <ClInclude Include="frustum.h">
+      <Filter>Header\trinity</Filter>
+    </ClInclude>
+    <ClInclude Include="mirrormanager.h">
+      <Filter>Header\trinity</Filter>
+    </ClInclude>
+    <ClInclude Include="particle_engine.h">
+      <Filter>Header\trinity</Filter>
+    </ClInclude>
+    <ClInclude Include="propmanager.h">
+      <Filter>Header\trinity</Filter>
+    </ClInclude>
+    <ClInclude Include="textureloader.h">
+      <Filter>Header\trinity</Filter>
+    </ClInclude>
+    <ClInclude Include="watershader.h">
+      <Filter>Header\trinity</Filter>
+    </ClInclude>
+    <ClInclude Include="studio.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="metahook.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="const.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="view.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="rendererdefs.h">
+      <Filter>Header\trinity</Filter>
+    </ClInclude>
+    <ClInclude Include="player.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="weapons.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="StudioModelRenderer.h">
+      <Filter>Header\trinity</Filter>
+    </ClInclude>
+    <ClInclude Include="r.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="events.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="message.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="plugins.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="sizebuf.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="svc_hook.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="svc_message.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="decal.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ref_int.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
