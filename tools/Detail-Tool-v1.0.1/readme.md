@@ -4,7 +4,7 @@ This is a utility program developed for the Trinity\Abyss rendering engines for 
 
 The Trinity\Abyss rendering engines just like the original Steam Half-Life use detail textures to enhance the quality of texture maps, for this to work a text file with the same name as the map with the sufix "_detail" must exist inside the "maps" folder, those files contain information for what detail texture should be used for each texture inside the map as well as scale values, the particular structure of individual detail files is irrelevant for the purpose of this tutorial since we wont be touching them directly, the point is that writing these files manually isn't easy and didn't always provide optimal results. The Trinity\Abyss engine added the ability to auto generate detail files by processing another text file called "detailtextures.txt" that should be located inside the "maps" folder too, this file contains information in the same fashion as the regular detail files except it does not contain any values. The "detailtextures.txt" works by specifying texture names followed by the detail texture name for each line.
 
-![](/screenshot.png)
+![](/tools/Detail-Tool-v1.0.1/screenshot.png)
 
 Example:
 
