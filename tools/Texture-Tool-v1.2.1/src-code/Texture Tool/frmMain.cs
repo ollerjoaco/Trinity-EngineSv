@@ -15,7 +15,7 @@ namespace Script_Tool
 
     public partial class frmMain : Form
     {
-        // Constant variables
+        // Constants
         const int MAXWORLDTEXTURES = 8192;
         const int MAXMODELTEXTURES = 2048;
         const int MAXSUBFOLDERS = 4096;
@@ -40,16 +40,16 @@ namespace Script_Tool
         int[] m_iNumModelTextures;
 
         string[] m_szSubFolders;
-        int m_iNumModelIndexes;
+        int m_iNumSubFolders;
 
         // User data array list
-        public static List<string> m_szUserData;
+        static List<string> m_szUserData;
 
         // Texture script data
-        public static List<string> m_szScriptData;
+        static List<string> m_szScriptData;
 
         // User config data file directorty
-        public static string m_szFullDir;
+        static string m_szUserDataDir;
 
         public frmMain()
         {
@@ -58,7 +58,7 @@ namespace Script_Tool
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            // Get user settings
+            // Load saved settings
             GetUserSettings();
         }
 
@@ -87,10 +87,12 @@ namespace Script_Tool
         //==============================
         private void Run(object sender, EventArgs e)
         {
+            bool bHasData = false;
+
             // Dn't pass if no path is specified
             if (txtTexturesPath.Text == "")
             {
-                MessageBox.Show("No texture path specified, aborting.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No texture path specified, aborting.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -108,23 +110,25 @@ namespace Script_Tool
                 return;
             }
 
+            // All checks were valid, start algorithms
+
             // Parse world textures
             if (cbxWorldTextures.Checked)
-                ParseWorldTextures();
+                bHasData = ParseWorldTextures();
 
             // Parse model textures
             if (cbxModelTextures.Checked)
-                ParseModelTextures();
+                bHasData = ParseModelTextures();
 
-            // Build the texture script
-            MakeScript();
+            if (bHasData)
+                MakeScript();
         }
 
         //==============================
-        // ParseModelTextures()
+        // ParseWorldTextures()
         // Grab textures from world folder
         //==============================
-        private void ParseWorldTextures()
+        private bool ParseWorldTextures()
         {
             string[] szFiles;
 
@@ -155,7 +159,7 @@ namespace Script_Tool
                             // Get extension of current texture
                             string ext = Path.GetExtension(szFiles[i]);
 
-                            // Check all file formats, but only include selected formats
+                            // Check all file formats, but only include selected ones
 
                             if (String.Equals(ext, m_szFormats[0], StringComparison.CurrentCultureIgnoreCase))
                             {
@@ -184,31 +188,35 @@ namespace Script_Tool
                                     m_iNumWorldTextures++;
                                 }
                             }
-                            else
-                            {
-                                MessageBox.Show("No valid formats found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                return;
-                            }
                         }
                     }
                     else
-                        MessageBox.Show("World directory contains no textures, aborting.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    {
+                        MessageBox.Show("World directory contains no files, aborting.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
                 }
                 else
+                {
                     MessageBox.Show("World directory does not exist, aborting.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                return true;
             }
 
+            return false;
         }
 
         //==============================
         // ParseModelTextures()
         // Grab textures from models folder
         //==============================
-        private void ParseModelTextures()
+        private bool ParseModelTextures()
         {
             string[,] szFiles;
             int[] iNumFiles;
-            int iNumFolders;
+            int iNumIndexes;
 
             string szWorkingDir;
 
@@ -230,12 +238,11 @@ namespace Script_Tool
                         // Declare at this point
                         m_szModelTextures = new string[MAXSUBFOLDERS, MAXMODELTEXTURES];
                         m_iNumModelTextures = new int[MAXSUBFOLDERS];
-                        m_iNumModelIndexes = 0;
-
-                        iNumFiles = new int[MAXSUBFOLDERS];
-                        iNumFolders = 0;
+                        m_iNumSubFolders = 0;
 
                         szFiles = new string[MAXSUBFOLDERS, MAXMODELTEXTURES];
+                        iNumFiles = new int[MAXSUBFOLDERS];
+                        iNumIndexes = 0;
 
                         // Loop each subfolder
                         for (int i = 0; i < m_szSubFolders.Length; i++)
@@ -249,11 +256,11 @@ namespace Script_Tool
                                 // Get all textures from current subfolder
                                 for (int j = 0; j < files.Length; j++)
                                 {
-                                    szFiles[iNumFolders, j] = files[j];
-                                    iNumFiles[iNumFolders]++;
+                                    szFiles[iNumIndexes, j] = files[j];
+                                    iNumFiles[iNumIndexes]++;
                                 }
 
-                                iNumFolders++;
+                                iNumIndexes++;
                             }
                             else
                             {
@@ -263,22 +270,22 @@ namespace Script_Tool
                         }
 
                         // Loop each texture
-                        for (int i = 0; i < iNumFolders; i++)
+                        for (int i = 0; i < iNumIndexes; i++)
                         {
                             for (int j = 0; j < iNumFiles[i]; j++)
                             {
                                 // Get extension of current texture
                                 string ext = Path.GetExtension(szFiles[i, j]);
 
-                                // Check all file formats, but only include selected formats
+                                // Check all file formats, but only include selected ones
 
                                 if (String.Equals(ext, m_szFormats[0], StringComparison.CurrentCultureIgnoreCase))
                                 {
                                     if (cbxDDS.Checked)
                                     {
                                         // Include current texture
-                                        m_szModelTextures[m_iNumModelIndexes, m_iNumModelTextures[m_iNumModelIndexes]] = Path.GetFileNameWithoutExtension(szFiles[i, j]);
-                                        m_iNumModelTextures[m_iNumModelIndexes]++;
+                                        m_szModelTextures[m_iNumSubFolders, m_iNumModelTextures[m_iNumSubFolders]] = Path.GetFileNameWithoutExtension(szFiles[i, j]);
+                                        m_iNumModelTextures[m_iNumSubFolders]++;
                                     }
                                 }
                                 else if (String.Equals(ext, m_szFormats[1], StringComparison.CurrentCultureIgnoreCase))
@@ -286,8 +293,8 @@ namespace Script_Tool
                                     if (cbxTGA.Checked)
                                     {
                                         // Include current texture
-                                        m_szModelTextures[m_iNumModelIndexes, m_iNumModelTextures[m_iNumModelIndexes]] = Path.GetFileNameWithoutExtension(szFiles[i, j]);
-                                        m_iNumModelTextures[m_iNumModelIndexes]++;
+                                        m_szModelTextures[m_iNumSubFolders, m_iNumModelTextures[m_iNumSubFolders]] = Path.GetFileNameWithoutExtension(szFiles[i, j]);
+                                        m_iNumModelTextures[m_iNumSubFolders]++;
                                     }
                                 }
                                 else if (String.Equals(ext, m_szFormats[2], StringComparison.CurrentCultureIgnoreCase))
@@ -295,26 +302,31 @@ namespace Script_Tool
                                     if (cbxBMP.Checked)
                                     {
                                         // Include current texture
-                                        m_szModelTextures[m_iNumModelIndexes, m_iNumModelTextures[m_iNumModelIndexes]] = Path.GetFileNameWithoutExtension(szFiles[i, j]);
-                                        m_iNumModelTextures[m_iNumModelIndexes]++;
+                                        m_szModelTextures[m_iNumSubFolders, m_iNumModelTextures[m_iNumSubFolders]] = Path.GetFileNameWithoutExtension(szFiles[i, j]);
+                                        m_iNumModelTextures[m_iNumSubFolders]++;
                                     }
-                                }
-                                else
-                                {
-                                    MessageBox.Show("No valid formats found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    return;
                                 }
                             }
 
-                            m_iNumModelIndexes++;
+                            m_iNumSubFolders++;
                         }
                     }
                     else
+                    {
                         MessageBox.Show("Models directory contains no subdirectories, aborting.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
                 }
                 else
+                {
                     MessageBox.Show("Models directory does not exist, aborting.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                return true;
             }
+
+            return false;
         }
 
         //==============================
@@ -325,7 +337,7 @@ namespace Script_Tool
         {
             m_szScriptData = new List<string>();
 
-            int iModelIndexes = 0;
+            bool bNoData = false;
 
             // Header
             m_szScriptData.Add("//");
@@ -335,56 +347,58 @@ namespace Script_Tool
             m_szScriptData.Add("");
             m_szScriptData.Add("");
 
-            // Sum all values of m_iNumModelTextures for a positive reference value
-            for (int i = 0; i < m_iNumModelIndexes; i++)
-                iModelIndexes += m_iNumModelTextures[i];
-
-            // Is there anything to write at all
-            if (m_iNumWorldTextures == 0 && iModelIndexes == 0)
-            {
-                MessageBox.Show("No textures to write!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
             // World textures
-            if (m_iNumWorldTextures > 0)
+            if (cbxWorldTextures.Checked == true)
             {
-                // Header
-                m_szScriptData.Add("");
-                m_szScriptData.Add("// World");
-                m_szScriptData.Add("");
-
-                // Loop world array
-                for (int i = 0; i < m_iNumWorldTextures; i++)
-                    m_szScriptData.Add("world " + m_szWorldTextures[i] + " alternate");
-
-                m_szScriptData.Add("");
-            }
-            else
-                MessageBox.Show("No world textures to write!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-            // Model textures
-            if (m_iNumModelIndexes > 0)
-            {
-                // Header
-                m_szScriptData.Add("");
-                m_szScriptData.Add("// Models");
-                m_szScriptData.Add("");
-
-                // Loop model array
-                for (int i = 0; i < m_iNumModelIndexes; i++)
+                if (m_iNumWorldTextures > 0)
                 {
-                    for (int j = 0; j < m_iNumModelTextures[i]; j++)
-                        m_szScriptData.Add(Path.GetFileName(m_szSubFolders[i]) + " " + m_szModelTextures[i, j] + " alternate");
+                    // Header
+                    m_szScriptData.Add("");
+                    m_szScriptData.Add("// World");
+                    m_szScriptData.Add("");
+
+                    // Loop world array
+                    for (int i = 0; i < m_iNumWorldTextures; i++)
+                        m_szScriptData.Add("world " + m_szWorldTextures[i] + " alternate");
 
                     m_szScriptData.Add("");
                 }
+                else
+                {
+                    MessageBox.Show("No world textures to write!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    bNoData = true;
+                }
             }
-            else
-                MessageBox.Show("No model textures to write!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            // Model textures
+            if (cbxModelTextures.Checked == true)
+            {
+                if (m_iNumSubFolders > 0)
+                {
+                    // Header
+                    m_szScriptData.Add("");
+                    m_szScriptData.Add("// Models");
+                    m_szScriptData.Add("");
+
+                    // Loop model array
+                    for (int i = 0; i < m_iNumSubFolders; i++)
+                    {
+                        for (int j = 0; j < m_iNumModelTextures[i]; j++)
+                            m_szScriptData.Add(Path.GetFileName(m_szSubFolders[i]) + " " + m_szModelTextures[i, j] + " alternate");
+
+                        m_szScriptData.Add("");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No model textures to write!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    bNoData = true;
+                }
+            }
 
             // Write the script
-            WriteScript();
+            if (!bNoData)
+                WriteScript();
         }
 
 
@@ -411,7 +425,7 @@ namespace Script_Tool
                 // Create a writer and open the file
                 TextWriter tw = new StreamWriter(szFinalPath);
 
-                // Print script
+                // Write what we gathered
                 for (int i = 0; i < m_szScriptData.Count; i++)
                     tw.WriteLine(m_szScriptData[i]);
 
@@ -423,8 +437,8 @@ namespace Script_Tool
             }
             catch
             {
-                // Could not generate .cfg file
-                MessageBox.Show("Could not generate texture script, make sure the previous saved config file is not Read-only.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Generation failed
+                MessageBox.Show("Could not generate texture script, make sure the existing file is not Read-only.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -440,7 +454,7 @@ namespace Script_Tool
             try
             {
                 // Create a writer and open the file
-                TextWriter tw = new StreamWriter(m_szFullDir);
+                TextWriter tw = new StreamWriter(m_szUserDataDir);
 
                 // Header
                 tw.WriteLine("// User settings data file (do not modify)");
@@ -478,7 +492,7 @@ namespace Script_Tool
             try
             {
                 // Create reader & open file
-                TextReader tr = new StreamReader(m_szFullDir);
+                TextReader tr = new StreamReader(m_szUserDataDir);
 
                 m_szUserData = new List<string>();
 
@@ -608,14 +622,14 @@ namespace Script_Tool
             string szAppdataDir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
             // Application folder
-            string szScriptToolDir = String.Concat(szAppdataDir, @"\Script Tool\");
+            string szScriptToolDir = String.Concat(szAppdataDir, @"\Texture Tool\");
 
             // Create the folder if necessary
             if (bCreate == true)
                 Directory.CreateDirectory(szScriptToolDir);
 
             // Mount the full directory
-            m_szFullDir = String.Concat(szScriptToolDir, USERDATAFILENAME);
+            m_szUserDataDir = String.Concat(szScriptToolDir, USERDATAFILENAME);
         }
 
         //==============================

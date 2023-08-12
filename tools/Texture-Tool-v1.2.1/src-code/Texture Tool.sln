@@ -1,22 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Script Tool", "Script Tool\Script Tool.csproj", "{68F02958-35B1-42AF-9CD5-157320DBE0FF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Texture Tool", "Texture Tool\Texture Tool.csproj", "{68F02958-35B1-42AF-9CD5-157320DBE0FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
-		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
-		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{68F02958-35B1-42AF-9CD5-157320DBE0FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{68F02958-35B1-42AF-9CD5-157320DBE0FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{68F02958-35B1-42AF-9CD5-157320DBE0FF}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{68F02958-35B1-42AF-9CD5-157320DBE0FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68F02958-35B1-42AF-9CD5-157320DBE0FF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{68F02958-35B1-42AF-9CD5-157320DBE0FF}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

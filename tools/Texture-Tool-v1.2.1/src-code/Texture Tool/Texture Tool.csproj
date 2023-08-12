@@ -8,8 +8,8 @@
     <ProjectGuid>{68F02958-35B1-42AF-9CD5-157320DBE0FF}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Script_Tool</RootNamespace>
-    <AssemblyName>scripttool</AssemblyName>
+    <RootNamespace>Texture_Tool</RootNamespace>
+    <AssemblyName>texturetool</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>

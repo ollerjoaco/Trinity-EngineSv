@@ -1,0 +1,19 @@
+This is a tool Hunk Guerrius been working on for personal use. It auto generates a texture flag script for the external loader feature in Trinity\Abyss. 
+It is very handy specially in scenarios where hundreds of external high resolution textures must be flagged for in-game usage.
+
+I have decided to publish this along with the source code, I doubt many people are working with Trinity let alone someone that is making extensive use of the texture loader, 
+but I have no reason to keep this private while the Trinity rendering engine is public, so.
+
+Really hope anyone will find it useful, I surely did.
+
+CHANGELOG:
+
+V1.1
+- Fixed issue with checking for existent script.
+
+V1.2
+- Renamed the tool to "Texture Tool" instead;
+- Cleaned bits and pieces of code, nothing significant is changed.
+
+V1.2.1
+- Corrected a couple minor issues with generation process checks.

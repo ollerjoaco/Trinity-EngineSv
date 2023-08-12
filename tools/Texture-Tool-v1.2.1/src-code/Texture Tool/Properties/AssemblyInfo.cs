@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Script Tool")]
+[assembly: AssemblyTitle("Texture Tool")]
 [assembly: AssemblyDescription("Texture script tool")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Script Tool")]
+[assembly: AssemblyProduct("Texture Tool")]
 [assembly: AssemblyCopyright("Copyright ©  Hunk Guerrius 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

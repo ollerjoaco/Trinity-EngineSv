@@ -43,7 +43,7 @@
             this.lblVersion.Name = "lblVersion";
             this.lblVersion.Size = new System.Drawing.Size(100, 23);
             this.lblVersion.TabIndex = 12;
-            this.lblVersion.Text = "v1.1";
+            this.lblVersion.Text = "v1.2.1";
             this.lblVersion.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // lblDeveloper
@@ -62,7 +62,7 @@
             this.lblAppName.Name = "lblAppName";
             this.lblAppName.Size = new System.Drawing.Size(156, 48);
             this.lblAppName.TabIndex = 10;
-            this.lblAppName.Text = "Script Tool";
+            this.lblAppName.Text = "Texture Tool";
             // 
             // imgLogo
             // 
