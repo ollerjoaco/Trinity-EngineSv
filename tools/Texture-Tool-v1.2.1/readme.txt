@@ -4,6 +4,8 @@ This is a utility program developed for the Trinity\Abyss rendering engines for 
 
 The Trinity\Abyss rendering engines have an external texture loader feature capable of loading ultra high resolution textures into a GoldSrc powered game\mod, the loader works by replacing a WAD texture or MDL texture by an external high resolution one of the same name. For this to function a folder named "world" or "models" must exist inside the "gfx\textures" folder, that will contain all the high resolution images of either .TGA or .DDS format with the name of the wad texture they are meant to replace. But for the textures to be loaded in the engine a texture script is required under the name "texture_flags.txt" in the "gfx\textures" folder, in there each line will contain the folder name the high resolution texture is curently in, followed by the name of the texture, followed by the flag macro that will specify how this texture is to be treated.
 
+![](/screenshot.png)
+
 Example:
 
 "world -0out_rk3 alternate"
