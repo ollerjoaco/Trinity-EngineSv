@@ -3,6 +3,8 @@
 by GeorgeMcx ( Gmcx )
 04/14/2023
 
+![](/tools/Trinity-ModelViewer/screenshot.png)
+
 *Description:
 This tool allows you to view 3D models designed for Half-Life and Counter Strike 1.6.
 This version has been modified to load models with higher polygon counts and higher resolution textures.
